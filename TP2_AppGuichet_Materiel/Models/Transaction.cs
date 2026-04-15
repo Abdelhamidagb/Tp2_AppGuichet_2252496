@@ -21,16 +21,16 @@ namespace AppGuichet
 
             // Validation NumClient
             if (pNumClient == null)
-                throw new ArgumentNullException(nameof(NumClient));
+                throw new ArgumentNullException();
 
-            if (pNumClient.Length != 6 || !long.TryParse(pNumClient, out _))
-                throw new ArgumentException("Le numéro de client doit contenir exactement 6 chiffres.", nameof(NumClient));
+            if (pNumClient.Length != 6 || !int.TryParse(pNumClient, out _))
+                throw new ArgumentException();
 
             m_numClient = pNumClient;
 
             // Validation Montant
             if (pMontant <= 0)
-                throw new ArgumentOutOfRangeException(nameof(Montant), "Le montant doit être supérieur à 0.");
+                throw new ArgumentOutOfRangeException();
 
             m_montant = pMontant;
 
