@@ -90,7 +90,13 @@ public class Client
 
     public Client(string pChaineLue)
     {
+        if (pChaineLue == null)
+            throw new ArgumentNullException();
+
         var parts = pChaineLue.Split(',');
+
+        if (parts.Length != 6)
+            throw new ArgumentException();
 
         NumClient = parts[0];
         Nom = parts[1];
