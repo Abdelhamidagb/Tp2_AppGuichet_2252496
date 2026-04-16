@@ -50,12 +50,14 @@ namespace AppGuichet
         //---------------------------------------------------------------------------------
         private void mnuAdminListeClients_Click(object sender, EventArgs e)
         {
-
+            FrmListeClients frm = new FrmListeClients(m_service.Clients);
+            frm.ShowDialog();
         }
         //---------------------------------------------------------------------------------
         private void mnuAdminListeTransactions_Click(object sender, EventArgs e)
         {
-
+            FrmListeTransactions frm = new FrmListeTransactions(m_service.Transactions);
+            frm.ShowDialog();
         }
 
 
@@ -63,12 +65,13 @@ namespace AppGuichet
 
         private void FrmPrincipal_FormClosing(object sender, EventArgs e)
         {
-
+            m_service.Sauvegarde();
 
         }
         private void mnuFichierQuitter_Click(object sender, EventArgs e)
         {
-
+            m_service.Sauvegarde();
+            Application.Exit();
 
 
         }
@@ -112,9 +115,7 @@ namespace AppGuichet
             try
             {
                 int montant = int.Parse(cboMontant.Text);
-
                 m_service.ClientCourant.Deposer(montant);
-
                 m_service.CreerTransaction(
                     SorteTransactions.Dépôt,
                     m_service.ClientCourant.NumClient,
