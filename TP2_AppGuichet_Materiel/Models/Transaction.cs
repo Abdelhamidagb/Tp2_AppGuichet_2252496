@@ -4,22 +4,26 @@ namespace AppGuichet
 {
     public class Transaction
     {
+        //attribue
+
         private SorteTransactions m_sorteTransaction;
         private DateTime m_date;
         private string m_numClient;
         private int m_montant;
 
-        // Propriétés en lecture seule (comme demandé dans le diagramme)
+        // Propriétés 
         public SorteTransactions SorteTransaction { get { return m_sorteTransaction; } }
         public DateTime Date { get { return m_date; } }
         public string NumClient { get { return m_numClient; } }
         public int Montant { get { return m_montant; } }
 
+        //Constructeur
+
         public Transaction(SorteTransactions pSorte, string pNumClient, DateTime pDate, int pMontant)
         {
             m_sorteTransaction = pSorte;
 
-            // Validation NumClient
+            
             if (pNumClient == null)
                 throw new ArgumentNullException();
 
@@ -28,7 +32,7 @@ namespace AppGuichet
 
             m_numClient = pNumClient;
 
-            // Validation Montant
+           
             if (pMontant <= 0)
                 throw new ArgumentOutOfRangeException();
 

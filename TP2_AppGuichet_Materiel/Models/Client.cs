@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class Client
 {
+    //Attribue
+
     private string m_numClient;
     private string m_nom;
     private string m_motDePasse;
@@ -14,6 +16,8 @@ public class Client
     public const int MAX_SOLDE = 1000000;
 
     public List<Transaction> Transactions { get; set; } = new List<Transaction>();
+
+    //Propriéte 
 
     public string NumClient
     {
@@ -76,6 +80,8 @@ public class Client
     }
 
     public bool IsAdmin => m_role == Roles.Administrateur;
+
+    //Constructeur
 
     public Client(string pNumClient, string pNom, string pMotDePasse,
         Roles pRole, SorteComptes pSorte, int pSolde)

@@ -52,6 +52,7 @@ namespace AppGuichet
             lsvClients.TabIndex = 2;
             lsvClients.UseCompatibleStateImageBehavior = false;
             lsvClients.View = View.Details;
+            lsvClients.SelectedIndexChanged += lsvClients_SelectedIndexChanged;
             // 
             // clhNo
             // 
@@ -92,7 +93,6 @@ namespace AppGuichet
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Liste des clients de la banque";
             ResumeLayout(false);
-
         }
 
         #endregion

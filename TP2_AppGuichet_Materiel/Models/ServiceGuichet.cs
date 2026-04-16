@@ -5,10 +5,15 @@ using System.IO;
 
 public class ServiceGuichet
 {
+    //Attribue
+
     private string m_cheminFichierClients;
     private string m_cheminFichierTransactions;
     private List<Client> m_clients;
     private List<Transaction> m_transactions;
+
+
+    //Propriétés 
 
     public List<Client> Clients
     {
@@ -21,6 +26,9 @@ public class ServiceGuichet
     }
 
     public Client ClientCourant { get; private set; }
+
+    //Propriétés 
+
 
     public ServiceGuichet(string pCheminFichierClients, string pCheminFichierTransactions)
     {
@@ -91,6 +99,11 @@ public class ServiceGuichet
             throw new ArgumentException();
 
         Transaction t = new Transaction(pSorte, pNumClient, pDate, pMontant);
+
+        if (pSorte == SorteTransactions.Dépôt)
+            client.Deposer(pMontant);
+        else
+            client.Retirer(pMontant);
 
         client.AjouterTransaction(t);
         m_transactions.Add(t);
