@@ -9,7 +9,7 @@ namespace AppGuichet
     public partial class FrmListeTransactions : Form
     {
         //------------------------------------------------------------------------------
-       
+        private List<Transaction> m_transactions;
 
         //----------------------------------------------------------------
         public FrmListeTransactions()
